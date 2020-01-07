@@ -16,5 +16,14 @@ const messages = [
 module.exports.basicLambdaFromEugene = async event => {
   let message = messages[Math.floor(Math.random() * 10)];
 
-  return message;
+  return {
+    statusCode: 200,
+    body: JSON.stringify(
+      {
+        message: message
+      },
+      null,
+      2
+    )
+  };
 };
